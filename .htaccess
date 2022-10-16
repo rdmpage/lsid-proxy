@@ -9,5 +9,6 @@ RewriteBase /
 
 
 #-----------------------------------------------------------------------------------------
+RewriteRule (urn:lsid:.*)\+$	?lsid=$1&noredirect [NC,L]
 
 RewriteRule (urn:lsid:.*$) ?lsid=$1 [NC,L]

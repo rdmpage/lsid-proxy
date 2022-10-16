@@ -19,11 +19,14 @@ resolver:
  - 
    domain: indexfungorum.org
    url: "http://www.indexfungorum.org/IXFWebService/Fungus.asmx/NameByKeyRDF?NameLsid={LSID}"
+   web: "http://www.indexfungorum.org/Names/NamesRecord.asp?RecordID={ID}"
  - 
    domain: "ipni.org"
    url: "https://ipni.org/{LSID}"
    content-type: "application/rdf+xml"
+   web: "https://www.ipni.org/{LSID}"
     
  - 
    domain: "organismnames.com"
    url: "http://www.organismnames.com/lsidmetadata.htm?lsid={ID}"
+   web: "http://www.organismnames.com/details.htm?lsid={ID}"

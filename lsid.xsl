@@ -98,6 +98,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
@@ -107,6 +108,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
@@ -116,6 +118,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
@@ -127,6 +130,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 												<xsl:value-of select="@rdf:resource" />
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
+											<xsl:text>+</xsl:text>
 										</a>
 									</xsl:when>
 									<xsl:when test="local-name()='parentNameUsageID'">
@@ -134,6 +138,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
@@ -143,6 +148,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
@@ -152,6 +158,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
 										</a>
