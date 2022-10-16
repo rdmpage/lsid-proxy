@@ -1,0 +1,28 @@
+body {
+	padding: 2em;
+}
+
+.error {
+	background-color:orange;
+	padding:1em;
+}
+
+td {
+	padding:0.2em;    			
+}
+
+a {
+	text-decoration: none;
+	word-break: break-all;
+	/* Safari */
+	word-break: break-word;
+}
+
+a:hover {
+	text-decoration: underline;
+}	
+
+.external:after
+{
+    content: " ⧉";
+}

@@ -1,0 +1,29 @@
+# Cache
+cache_path: cache
+cache_time: 3600
+
+# LSID domains that support full resolution protocol
+
+authority:
+ - "aphid.speciesfile.org"
+ - "blattodea.speciesfile.org"
+ - "coreoidea.speciesfile.org"
+ - "orthoptera.speciesfile.org"
+ - "irmng.org"
+ - "marinespecies.org"
+ - "nmbe.ch"
+
+# Rules for LSIDs where the service providing XML is not discoverable using LSID protocol
+
+resolver:
+ - 
+   domain: indexfungorum.org
+   url: "http://www.indexfungorum.org/IXFWebService/Fungus.asmx/NameByKeyRDF?NameLsid={LSID}"
+ - 
+   domain: "ipni.org"
+   url: "https://ipni.org/{LSID}"
+   content-type: "application/rdf+xml"
+    
+ - 
+   domain: "organismnames.com"
+   url: "http://www.organismnames.com/lsidmetadata.htm?lsid={ID}"

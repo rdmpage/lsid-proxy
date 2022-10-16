@@ -1,0 +1,12 @@
+{
+    "name": "rpage/lsid-proxy",
+    "require": {
+        "symfony/yaml": "^5.4"
+    },
+    "authors": [
+        {
+            "name": "Roderic Page",
+            "email": "rdmpage@gmail.com"
+        }
+    ]
+}

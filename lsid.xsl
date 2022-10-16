@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xsl:stylesheet version='1.0' 
+
+xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
+
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:dcterms="http://purl.org/dc/terms/" 
+xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#"
+
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+
+xmlns:tm="http://rs.tdwg.org/ontology/voc/Team#" 
+xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#"
+xmlns:p="http://rs.tdwg.org/ontology/voc/Person#" 
+
+xmlns:tpub="http://rs.tdwg.org/ontology/voc/PublicationCitation#"   
+
+exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
+  
+>
+
+<xsl:output method='html' encoding='utf-8' indent='yes' />
+
+<xsl:template name="replace">
+    <xsl:param name="string"/>
+    <xsl:param name="substring"/>
+    <xsl:param name="replacement"/>
+    <xsl:choose>
+        <xsl:when test="contains($string, $substring)">
+            <xsl:value-of select="substring-before($string, $substring)"/>
+            <xsl:value-of select="$replacement"/>
+            <xsl:call-template name="replace">
+                <xsl:with-param name="substring" select="$substring"/>
+                <xsl:with-param name="replacement" select="$replacement"/>
+                <xsl:with-param name="string" select="substring-after($string, $substring)"/>
+            </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$string"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+
+<xsl:template match="/">
+
+    <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+
+
+    <html>
+    <head>
+    	<link type="text/css" href="main.css" rel="stylesheet" />
+    </head>
+    <body>
+	<xsl:apply-templates select="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person"/>
+
+	</body>
+	</html>
+</xsl:template>
+
+<xsl:template match="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person">
+
+	<h1>
+		<xsl:value-of select="dc:Title|dc:title|dcterms:title" />
+	</h1>
+
+	<p>
+		<xsl:text>Data for the Life Science Identifier (LSID) </xsl:text>
+		<a>
+			<xsl:attribute name="href">
+			<xsl:text>./</xsl:text>
+			<xsl:value-of select="@rdf:about" />
+			</xsl:attribute>
+		<xsl:value-of select="@rdf:about" />
+		</a>
+		<xsl:text> </xsl:text>
+		
+		<xsl:text>(view </xsl:text>
+				<a>
+			<xsl:attribute name="href">
+			<xsl:text>./</xsl:text>
+			<xsl:value-of select="@rdf:about" />
+			<xsl:text>&amp;format=xml</xsl:text>
+			</xsl:attribute>
+		<xsl:text>XML</xsl:text>
+		</a>
+		<xsl:text>)</xsl:text>
+		
+		<xsl:text>.</xsl:text>
+
+	</p>
+	
+	<table>
+	
+	<xsl:for-each select="*">
+	
+		<tr>
+		<td align="right" style="width:200px;">
+			<xsl:value-of select="local-name()" />
+		</td>
+		<td>
+			➪
+		</td>
+		<td>
+	
+		<xsl:choose>
+			<xsl:when test="@rdf:nodeID">
+				<xsl:value-of select="@rdf:nodeID" /> 
+			</xsl:when>
+		
+			<xsl:when test="@rdf:resource">
+			<xsl:choose>
+			
+				<!-- other LSIDs -->			
+				<xsl:when test="local-name()='basionymFor'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+			
+				
+				<xsl:when test="local-name()='hasBasionym'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<xsl:when test="local-name()='acceptedNameUsageID'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+
+				<xsl:when test="local-name()='scientificNameID'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+
+				<xsl:when test="local-name()='parentNameUsageID'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+
+				<xsl:when test="local-name()='isReplacedBy'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+
+				<xsl:when test="local-name()='replaces'">
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<!-- links -->
+				
+				<xsl:when test="local-name()='creator'">
+					<a class="external">
+						<xsl:attribute name="href">
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+
+				<xsl:when test="local-name()='hasInformation'">
+					<a class="external">
+						<xsl:attribute name="href">
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<xsl:when test="local-name()='nomenclaturalCode'">
+					<a class="external">
+						<xsl:attribute name="href">
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<xsl:when test="local-name()='rank'">
+					<a class="external">
+						<xsl:attribute name="href">
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<xsl:when test="local-name()='seeAlso'">
+					<a class="external">
+						<xsl:attribute name="href">
+							<xsl:value-of select="@rdf:resource" /> 
+						</xsl:attribute>
+					<xsl:value-of select="@rdf:resource" /> 
+					</a>
+				</xsl:when>
+				
+				<!-- IPNI versioned LSIDs don't work so output as text-->
+				
+				<xsl:when test="local-name()='versionedAs'">
+					<xsl:value-of select="@rdf:resource" /> 
+				</xsl:when>								
+				
+				<xsl:otherwise>
+					[unknown]
+				</xsl:otherwise>
+			</xsl:choose>
+			
+			</xsl:when>
+			
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="starts-with(., 'http')">
+					<a class="external">
+						<xsl:variable name="string-with-escaped-ampersand">
+							<xsl:call-template name="replace">
+								<xsl:with-param name="string" select="."/>
+								<xsl:with-param name="substring">&amp;amp;</xsl:with-param>
+								<xsl:with-param name="replacement">&amp;</xsl:with-param>
+							</xsl:call-template>
+						</xsl:variable>
+					
+						<xsl:attribute name="href">
+							<xsl:value-of select="$string-with-escaped-ampersand"/>	
+						</xsl:attribute>
+						
+						<xsl:value-of select="$string-with-escaped-ampersand"/>					
+					</a>
+					</xsl:when>
+					
+					<xsl:otherwise>
+						<xsl:value-of select="." /> 
+					</xsl:otherwise>
+					
+				</xsl:choose>
+					
+			</xsl:otherwise>
+		</xsl:choose>
+		
+				</td>	
+				</tr>
+		
+		
+	</xsl:for-each>
+	
+	</table>
+	
+	
+</xsl:template>
+
+
+
+</xsl:stylesheet>
