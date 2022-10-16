@@ -1,7 +1,8 @@
 {
     "name": "rpage/lsid-proxy",
     "require": {
-        "symfony/yaml": "^5.4"
+        "symfony/yaml": "^5.4",
+        "ext-xsl" : "*" 
     },
     "authors": [
         {
