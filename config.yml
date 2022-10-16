@@ -30,3 +30,10 @@ resolver:
    domain: "organismnames.com"
    url: "http://www.organismnames.com/lsidmetadata.htm?lsid={ID}"
    web: "http://www.organismnames.com/details.htm?lsid={ID}"
+
+ - 
+   domain: "zoobank.org"
+   url: "https://zoobank.org/NomenclaturalActs.xml/{ID}"
+   content-type: "application/rdf+xml"
+   web: "https://zoobank.org/{ID}"
+ 

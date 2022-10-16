@@ -11,6 +11,12 @@ td {
 	padding:0.2em;    			
 }
 
+.key {
+	font-weight:bold;
+	text-align: right;
+	width:200px;
+}
+
 a {
 	text-decoration: none;
 	word-break: break-all;

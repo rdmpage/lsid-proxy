@@ -39,6 +39,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 		<html>
 			<head>
 				<link type="text/css" href="main.css" rel="stylesheet" />
+				 <meta name="theme-color" content="#1a5d8d" />
 			</head>
 			<body>
 				<div><a href="./">Home</a></div>
@@ -52,34 +53,36 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 		</h1>
 		
 		<xsl:if test="starts-with(@rdf:about, 'urn')">
-			<p>
-				<xsl:text>Data for the Life Science Identifier (LSID) </xsl:text>
-				<a>
-					<xsl:attribute name="href">
-						<xsl:text>./</xsl:text>
+			<xsl:if test="position() = 1">
+				<p>
+					<xsl:text>Data for the Life Science Identifier (LSID) </xsl:text>
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:about" />
+						</xsl:attribute>
 						<xsl:value-of select="@rdf:about" />
-					</xsl:attribute>
-					<xsl:value-of select="@rdf:about" />
-				</a>
-				<xsl:text></xsl:text>
-				<xsl:text> (view </xsl:text>
-				<a>
-					<xsl:attribute name="href">
-						<xsl:text>./</xsl:text>
-						<xsl:value-of select="@rdf:about" />
-						<xsl:text>&amp;format=xml</xsl:text>
-					</xsl:attribute>
-					<xsl:text>XML</xsl:text>
-				</a>
-				<xsl:text>)</xsl:text>
-				<xsl:text>.</xsl:text>
-			</p>
+					</a>
+					<xsl:text></xsl:text>
+					<xsl:text> (view </xsl:text>
+					<a>
+						<xsl:attribute name="href">
+							<xsl:text>./</xsl:text>
+							<xsl:value-of select="@rdf:about" />
+							<xsl:text>&amp;format=xml</xsl:text>
+						</xsl:attribute>
+						<xsl:text>XML</xsl:text>
+					</a>
+					<xsl:text>)</xsl:text>
+					<xsl:text>.</xsl:text>
+				</p>
+			</xsl:if>
 		</xsl:if>
 		
 		<table>
 			<xsl:for-each select="*">
 				<tr>
-					<td align="right" style="width:200px;">
+					<td class="key">
 						<xsl:value-of select="local-name()" />
 					</td>
 					<td>
@@ -163,7 +166,28 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:value-of select="@rdf:resource" />
 										</a>
 									</xsl:when>
+									
 									<!-- external links -->
+									
+									<xsl:when test="local-name()='type'">
+										<a class="external" target="_new">
+											<xsl:attribute name="href">
+												<xsl:value-of select="@rdf:resource" />
+											</xsl:attribute>
+											<xsl:value-of select="@rdf:resource" />
+										</a>
+									</xsl:when>
+
+									<xsl:when test="local-name()='publicationType'">
+										<a class="external" target="_new">
+											<xsl:attribute name="href">
+												<xsl:value-of select="@rdf:resource" />
+											</xsl:attribute>
+											<xsl:value-of select="@rdf:resource" />
+										</a>
+									</xsl:when>
+									
+									
 									<xsl:when test="local-name()='creator'">
 										<a class="external" target="_new">
 											<xsl:attribute name="href">
@@ -204,13 +228,25 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:value-of select="@rdf:resource" />
 										</a>
 									</xsl:when>
+									
 									<!-- IPNI versioned LSIDs don't work so output as text-->
+
 									<xsl:when test="local-name()='versionedAs'">
 										<xsl:value-of select="@rdf:resource" />
 									</xsl:when>
+									
+
+									<!-- Zoobank Publication LSIDs don't work so output as text-->
+
+									<xsl:when test="local-name()='parentPublication'">
+										<xsl:value-of select="@rdf:resource" />
+									</xsl:when>
+									
+
 									<xsl:otherwise>
 										<xsl:text>[unknown]</xsl:text>
 									</xsl:otherwise>
+									
 								</xsl:choose>
 							</xsl:when>
 							<xsl:otherwise>

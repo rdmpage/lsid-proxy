@@ -29,6 +29,7 @@ function display_default()
 	echo '<!DOCTYPE html><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="theme-color" content="#1a5d8d" />
 <link type="text/css" href="main.css" rel="stylesheet">
 </head>
 <body>
@@ -54,7 +55,8 @@ the URL for this resolver.</p>
 		'urn:lsid:marinespecies.org:taxname:955176',
 		'urn:lsid:nmbe.ch:spidersp:021946',
 		'urn:lsid:Orthoptera.speciesfile.org:TaxonName:61777',
-		'urn:lsid:organismnames.com:name:1776318',		
+		'urn:lsid:organismnames.com:name:1776318',	
+		'urn:lsid:zoobank.org:act:6EA8BB2A-A57B-47C1-953E-042D8CD8E0E2'	
 	);
 	
 	echo '<ul>';
