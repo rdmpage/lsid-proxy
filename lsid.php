@@ -52,9 +52,9 @@ class LSID {
 	 *
 	 */
 	function components()
-	{
+	{		
 		$components = explode(':', $this->lsid);
-		$this->authority = $components[2];
+		$this->authority = strtolower($components[2]);
 		$this->namespace = $components[3];
 		$this->object = $components[4];
 		if (isset($components[5]))

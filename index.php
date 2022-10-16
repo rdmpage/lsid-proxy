@@ -34,7 +34,7 @@ function display_default()
 <body>
 <h1>Life Sciences Identifier (LSID) Resolver</h1>
 <p>Resolve a <a href="https://en.wikipedia.org/wiki/LSID">LSID</a> by adding the LSID to
-the URL for this resolver, for example: ';
+the URL for this resolver.';
 
 	$resolver = (!empty($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on' || $_SERVER['HTTPS'] == '1')) ? 'https://' : 'http://';
 	$resolver .= $_SERVER['SERVER_NAME'];
@@ -42,12 +42,31 @@ the URL for this resolver, for example: ';
 	{
 		$resolver .= $_SERVER['REQUEST_URI'];
 	}
+	
+	$examples = array(
+		'urn:lsid:ipni.org:names:99338-1',
+		'urn:lsid:ipni.org:names:77209281-1',
+		'urn:lsid:ipni.org:names:77153960-1',
+		'urn:lsid:indexfungorum.org:names:356289',
+		'urn:lsid:Orthoptera.speciesfile.org:TaxonName:61777',
+		'urn:lsid:organismnames.com:name:1776318',
+		'urn:lsid:nmbe.ch:spidersp:021946'
+	);
+	
+	echo '<ul>';
+	foreach ($examples as $example_lsid)
+	{
+		echo '<li>';
+		echo '<a href="./' . $example_lsid . '">';
+		echo $resolver . $example_lsid;
+		echo '</a>';
+		echo '</li>';
+	
+	}
+	echo '</ul>';
 
 	$example_lsid = 'urn:lsid:ipni.org:names:99338-1';
 
-	echo '<a href="./' . $example_lsid . '">';
-	echo $resolver . $example_lsid;
-	echo '</a>';
 	echo '.</p>';
 	echo '</body>
 </html>';

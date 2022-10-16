@@ -41,6 +41,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 				<link type="text/css" href="main.css" rel="stylesheet" />
 			</head>
 			<body>
+				<div><a href="./">Home</a></div>
 				<xsl:apply-templates select="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person"/>
 			</body>
 		</html>
