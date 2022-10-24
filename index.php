@@ -339,8 +339,7 @@ function main()
 					$response->web = str_replace('{ID}', $lsid_object->object, $response->web);
 				}
 				
-			}
-			
+			}			
 		}
 		else
 		{
@@ -364,7 +363,6 @@ function main()
 	{
 		display_default();
 	}		
-
 }
 
 main();

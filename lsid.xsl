@@ -15,6 +15,7 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
   
 >
 	<xsl:output method='html' encoding='utf-8' indent='yes' />
+	
 	<xsl:template name="replace">
 		<xsl:param name="string"/>
 		<xsl:param name="substring"/>
@@ -34,12 +35,42 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+	
 	<xsl:template match="/">
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 		<html>
 			<head>
-				<link type="text/css" href="main.css" rel="stylesheet" />
-				 <meta name="theme-color" content="#1a5d8d" />
+				 <link type="text/css" href="main.css" rel="stylesheet" />
+				 <meta name="theme-color" content="#1a5d8d" />	
+				 
+				 
+				 <meta name="twitter:card" content="summary" />
+				 <meta name="twitter:image" content="https://lsid.io/images/lsid.png" />
+				 	
+				 <!--
+				 <xsl:if test="starts-with(//@rdf:about, 'urn')">
+					<xsl:if test="position() = 1">
+						<meta name="twitter:description">
+							<xsl:attribute name="content">
+							 	<xsl:value-of select="//@rdf:about" />
+							</xsl:attribute>
+						</meta>
+					</xsl:if>
+				</xsl:if>
+				-->
+				
+				 <xsl:if test="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person">
+							<meta name="twitter:title">
+							<xsl:attribute name="content">
+								<xsl:value-of select="//dc:Title" />
+							 	<xsl:value-of select="//dc:title" />
+							 	<xsl:value-of select="//dcterms:title" />							 	
+							</xsl:attribute>
+						</meta>
+				</xsl:if>
+				
+			 
+				 
 			</head>
 			<body>
 				<div><a href="./">Home</a></div>
@@ -47,6 +78,8 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 			</body>
 		</html>
 	</xsl:template>
+	
+	
 	<xsl:template match="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person">
 		<h1>
 			<xsl:value-of select="dc:Title|dc:title|dcterms:title" />
@@ -131,9 +164,10 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 											<xsl:attribute name="href">
 												<xsl:text>./</xsl:text>
 												<xsl:value-of select="@rdf:resource" />
+												<xsl:text>+</xsl:text>
 											</xsl:attribute>
 											<xsl:value-of select="@rdf:resource" />
-											<xsl:text>+</xsl:text>
+											
 										</a>
 									</xsl:when>
 									<xsl:when test="local-name()='parentNameUsageID'">
@@ -277,4 +311,5 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 			</xsl:for-each>
 		</table>
 	</xsl:template>
+	
 </xsl:stylesheet>

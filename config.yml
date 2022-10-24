@@ -20,6 +20,7 @@ resolver:
    domain: indexfungorum.org
    url: "http://www.indexfungorum.org/IXFWebService/Fungus.asmx/NameByKeyRDF?NameLsid={LSID}"
    web: "http://www.indexfungorum.org/Names/NamesRecord.asp?RecordID={ID}"
+   
  - 
    domain: "ipni.org"
    url: "https://ipni.org/{LSID}"
