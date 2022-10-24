@@ -44,11 +44,9 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 				 <meta name="theme-color" content="#1a5d8d" />	
 				 
 				 
+				 <!--
 				 <meta name="twitter:card" content="summary_large_image" />
 				 <meta name="twitter:image" content="https://lsid.io/images/lsid.png" />
-				 <meta name="og:image" content="https://lsid.io/images/lsid.png" />
-				 	
-				
 				 <xsl:if test="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person">
 					<meta name="twitter:title">
 						<xsl:attribute name="content">
@@ -57,6 +55,23 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 							<xsl:value-of select="//dcterms:title" />							 	
 						</xsl:attribute>
 					</meta>
+				</xsl:if>
+				 
+				 <xsl:if test="starts-with(//@rdf:about, 'urn')">
+					<xsl:if test="position() = 1">
+						<meta name="twitter:description">
+							<xsl:attribute name="content">
+							 	<xsl:value-of select="//@rdf:about" />
+							</xsl:attribute>
+						</meta>
+					</xsl:if>
+				</xsl:if>
+				
+				-->
+				
+				<meta name="og:image" content="https://lsid.io/images/lsid.png" />
+				
+				<xsl:if test="//tn:TaxonName|//rdf:Description|//tpub:PublicationCitation|//p:Person">
 					<meta name="og:title">
 						<xsl:attribute name="content">
 							<xsl:value-of select="//dc:Title" />
@@ -66,22 +81,15 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 					</meta>
 				</xsl:if>
 				
-				 
 				 <xsl:if test="starts-with(//@rdf:about, 'urn')">
-					<xsl:if test="position() = 1">
-						<meta name="twitter:description">
-							<xsl:attribute name="content">
-							 	<xsl:value-of select="//@rdf:about" />
-							</xsl:attribute>
-						</meta>
+				 	<xsl:if test="position() = 1">
 						<meta name="og:description">
 							<xsl:attribute name="content">
-							 	<xsl:value-of select="//@rdf:about" />
+								<xsl:value-of select="//@rdf:about" />
 							</xsl:attribute>
 						</meta>
 					</xsl:if>
-				</xsl:if>
-			 
+				</xsl:if>			 
 				 
 			</head>
 			<body>
