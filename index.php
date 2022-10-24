@@ -51,13 +51,25 @@ the URL for this resolver.</p>
 		'urn:lsid:ipni.org:names:99338-1',
 		'urn:lsid:ipni.org:names:77209281-1',
 		'urn:lsid:ipni.org:names:77153960-1',
+		
 		'urn:lsid:indexfungorum.org:names:356289',
+		
 		'urn:lsid:marinespecies.org:taxname:955176',
+		
 		'urn:lsid:nmbe.ch:spidersp:021946',
+		
 		'urn:lsid:Orthoptera.speciesfile.org:TaxonName:61777',
+		
 		'urn:lsid:organismnames.com:name:1776318',	
-		'urn:lsid:zoobank.org:act:6EA8BB2A-A57B-47C1-953E-042D8CD8E0E2'	
+		
+		'urn:lsid:zoobank.org:act:6EA8BB2A-A57B-47C1-953E-042D8CD8E0E2',
+		
+		'urn:lsid:irmng.org:taxname:10150800',
 	);
+	
+	// known to broken
+	// urn:lsid:wac.nmbe.ch:name:b9c45c62-4e36-440a-8b48-7e7e99923108  https://wac.nmbe.ch/order/pseudoscorpiones/genusdata/836
+	// urn:lsid:itis.gov:itis_tsn:180543 faiuls, but see https://www.itis.gov/ws_lsidApiDescription.html for (weird) XML response
 	
 	echo '<ul>';
 	foreach ($examples as $example_lsid)
@@ -240,6 +252,38 @@ function display_html($response, $html_redirect = false)
 }
 
 //----------------------------------------------------------------------------------------
+// If RDF has a link to web version, extract that.
+function metadata_get_web_url($response)
+{
+	if (isset($response->rdf))
+	{
+		$dom = new DOMDocument;
+		$dom->loadXML($response->rdf, LIBXML_NOCDATA); // So we get text wrapped in <![CDATA[ ... ]]>
+
+		$xpath = new DOMXPath($dom);
+		$xpath->registerNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+		$xpath->registerNamespace('dc', 'http://purl.org/dc/elements/1.1/');
+		$xpath->registerNamespace('tc', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#');
+		
+		// WoRMs
+		foreach($xpath->query('//dc:relation') as $node)
+		{
+    		$response->web = htmlspecialchars_decode($node->firstChild->nodeValue);
+		}		
+		
+		// WSC
+		foreach($xpath->query('//tc:hasInformation/@rdf:resource') as $node)
+		{
+    		$response->web = $node->firstChild->nodeValue;
+		}
+		
+		//print_r($response);
+	}
+
+	return $response;
+}
+
+//----------------------------------------------------------------------------------------
 function main()
 {
 	$config = get_config(dirname(__FILE__) . '/config.yml');
@@ -345,6 +389,9 @@ function main()
 		{
 			// attempt to resolve using LSID protocol
 			$response = resolveLSID($lsid, $config);
+			
+			// get web link from metadata
+			$response = metadata_get_web_url($response);
 		}
 	
 		switch ($format)
