@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- 
+LSID Resolution Discovery Service Sample WSDL for SOAP/HTTP Implementation
+
+Jordi Albornoz
+23 October 2003 - Initial Draft
+24 October 2003 - Minor cosmetic changes
+-->
+
+<definitions xmlns:tns="http://www.example.org/SampleResolutionDiscoveryService"
+		targetNamespace="http://www.example.org/SampleResolutionDiscoveryService"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:sns="http://www.omg.org/LSID/2003/ResolutionDiscovery/StandardSOAPBinding">
+
+	<import namespace="http://www.omg.org/LSID/2003/ResolutionDiscovery/StandardSOAPBinding" location="LSIDResolutionDiscoverySOAPBinding.wsdl" />
+
+	<service name="MyResolutionDiscoveryService">
+		<port name="MyResolutionDiscoveryPort" binding="sns:LSIDResolutionDiscoverySOAPBinding">
+			<soap:address location="http://www.example1.org/" />
+		</port>
+	</service>
+
+</definitions>

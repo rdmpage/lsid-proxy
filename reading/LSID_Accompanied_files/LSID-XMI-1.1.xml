@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <!DOCTYPE XMI SYSTEM "C:\Program Files\Rational\XDE\Addins\XMI\DTD\XMI11UML14.dtd"> -->
+<XMI xmi.version="1.1" xmlns:UML="http://www.omg.org/UML" xmlns:xlink="http://www.w3c.org/xlink" xmlns:XDE="http://www.rational.com/products/XDE">
+    <XMI.header>
+        <XMI.documentation>
+            <XMI.exporter>Rational XDE</XMI.exporter>
+            <XMI.exporterVersion>1.5</XMI.exporterVersion>
+        </XMI.documentation>
+        <XMI.metamodel xmi.name="UML" xmi.version="1.4"/>
+    </XMI.header>
+    <XMI.content>
+        <UML:Model xmi.id="XDE-B538E28F-E21F-4E11-921B-7E010E2F9814" name="LSID" isSpecification="false">
+            <UML:Namespace.ownedElement>
+                <UML:Package xmi.id="XDE-7060DD3A-AACF-4A34-B7FA-4ABB4FFB5BCF" name="Use Case View" isSpecification="false"/>
+                <UML:Package xmi.id="XDE-C8A20DC1-4237-4D83-BD79-54861671B5A6" name="Logical View" isSpecification="false">
+                    <UML:Namespace.ownedElement>
+                        <UML:Class xmi.id="XDE-FBB3ABE8-F53C-484D-838B-9445D2BDC6C1" isActive="false" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="NameValuePair" isSpecification="false">
+                            <UML:ModelElement.stereotype>
+                                <UML:Stereotype xmi.id="XDE-8C0372C9-AB76-4C4F-BFC6-39288F4879AD" name="struct"/>
+                            </UML:ModelElement.stereotype>
+                            <UML:Classifier.feature>
+                                <UML:Attribute xmi.id="XDE-4249F647-4046-478D-B6BF-4F5A51AFC61A" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="property" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-C196DDBA-CCF7-4C72-89FE-1FCC01D489DF" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="value" isSpecification="false"/>
+                            </UML:Classifier.feature>
+                        </UML:Class>
+                        <UML:Class xmi.id="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" isActive="false" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="LSID" isSpecification="false">
+                            <UML:ModelElement.stereotype>
+                                <UML:Stereotype xmi.idref="XDE-8C0372C9-AB76-4C4F-BFC6-39288F4879AD"/>
+                            </UML:ModelElement.stereotype>
+                            <UML:Classifier.feature>
+                                <UML:Attribute xmi.id="XDE-4433B07C-B460-4DF2-A337-DA411701427E" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="authorityID" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-506AFF70-6746-4896-9A8F-C4223D02DDB4" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="namespaceID" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-5E652742-C186-4739-BD26-05579E3942A6" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="objectID" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-19AEA6BB-8235-4127-AACB-1785C340AE65" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="revisionID" isSpecification="false"/>
+                            </UML:Classifier.feature>
+                        </UML:Class>
+                        <UML:Interface xmi.id="XDE-A16B6458-248B-4366-869C-4E10FEF57CAD" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="LSIDAssigningService" isSpecification="false">
+                            <UML:Classifier.feature>
+                                <UML:Operation xmi.id="XDE-4AF8F22E-275B-470D-95AC-562B0A94D769" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="assignLSID" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-4333E499-9773-4FD6-A082-A019F6D354DA" kind="return" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-10B92212-BAB2-4E1C-90BB-1F26519C1004" kind="in" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="authority" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-2265EFEE-9382-48C8-9977-293BFAA37417" kind="in" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="namespace" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-609198F3-5CE3-4FD5-ABC2-1E878B295CA2" kind="in" type="XDE-482A5E69-E8C3-450B-AF0D-286099987626" name="property_list" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-110E0D0A-365C-4287-AF1F-EA833AA610B5" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="assignLSIDFromList" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-3551FB7E-B7DE-4848-9A69-4FE6F2EB6AFC" kind="return" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-A5599D74-A29A-4C33-81BE-D13B5519CF40" kind="in" type="XDE-482A5E69-E8C3-450B-AF0D-286099987626" name="property_list" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-5D1E0387-5DAB-4AF2-A743-B81E7D059E4C" kind="in" type="XDE-594E88FF-BCEF-40F4-AAD3-3FCF7FA9B419" name="list_of_suggested_ids" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-0F56C8C6-FBBF-43F5-BFC4-10737469636A" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getLSIDPattern" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-8AEECFB6-298D-42A2-9409-0E1466FC0670" kind="return" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-233C273D-D6B4-44C6-9F26-2FE61EF391E5" kind="in" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="authority" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-89ECEA87-0F42-4043-BAB5-3DB44F68829C" kind="in" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="namespace" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-A5C554DA-196F-41DC-9D79-C67B064C4F35" kind="in" type="XDE-482A5E69-E8C3-450B-AF0D-286099987626" name="property_list" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-5586B097-F388-4033-9C70-7A33F6C1BEEE" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getLSIDPatternFromList" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-47A48AB8-EDC0-4D3F-905E-11A4408C5EA7" kind="return" type="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-0ED2B635-A4A5-4C1F-996B-E7F1D20DA033" kind="in" type="XDE-482A5E69-E8C3-450B-AF0D-286099987626" name="property_list" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-B62D890A-279C-4DF9-8493-4C9BBC91EE33" kind="in" type="XDE-F3A84DF0-B281-4FAA-8AC8-B447A2F7A3BF" name="list_of_suggested_patterns" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-7A7AF879-7B5E-4F88-841C-B326879DDF8F" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="assignLSIDForNewRevision" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-3853FBF7-8511-4DE3-8115-DF70C389C1A4" kind="return" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-A012E8FA-1137-41BE-88CA-2FEE6B8A606B" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="previous_identifier" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-AD1B1D8B-C43A-4F6D-AA4A-B25BC2EDF9FE" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getAllowedPropertyNames" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-F29DCA63-1CFA-4E17-A9CA-C867C81E90EE" kind="return" type="XDE-F3A84DF0-B281-4FAA-8AC8-B447A2F7A3BF" name="Parameter1" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-056D58A1-0EB3-4BA1-B37E-E535F72239F6" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getAuthoritiesAndNamespaces" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-76FDC65A-CB2A-4763-97CA-F8BB298332AF" kind="return" type="XDE-BC5BB921-9327-4C0E-83F4-604634FC5C28" name="Parameter1" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                            </UML:Classifier.feature>
+                            <UML:Namespace.ownedElement>
+                                <UML:Dependency xmi.id="XDE-E1D9C1BD-3628-47A7-825E-32F7E14A0DA8" client="XDE-A16B6458-248B-4366-869C-4E10FEF57CAD" supplier="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="" isSpecification="false"/>
+                                <UML:Dependency xmi.id="XDE-226BA27E-2F04-4968-8EA0-9084A60CE195" client="XDE-A16B6458-248B-4366-869C-4E10FEF57CAD" supplier="XDE-FBB3ABE8-F53C-484D-838B-9445D2BDC6C1" name="" isSpecification="false"/>
+                            </UML:Namespace.ownedElement>
+                        </UML:Interface>
+                        <UML:Interface xmi.id="XDE-FF7CA8DB-0801-4EA4-8AF8-D1D415D04D3C" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="LSIDResolutionService" isSpecification="false">
+                            <UML:Classifier.feature>
+                                <UML:Operation xmi.id="XDE-1D2E3DE9-FB96-4EF5-93D0-30571B102B8C" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getAvailableServices" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-73C82B07-D079-43C0-ADE4-981B691714B9" kind="return" type="XDE-5ACE1B8C-3E8C-4B4E-89C0-F7A394A67A61" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-DDCFC1DE-0A85-41BC-B7DF-E61DAB669407" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                            </UML:Classifier.feature>
+                            <UML:Namespace.ownedElement>
+                                <UML:Dependency xmi.id="XDE-BBBF53A0-9C6A-4A99-8F94-56363E6256BF" client="XDE-FF7CA8DB-0801-4EA4-8AF8-D1D415D04D3C" supplier="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="" isSpecification="false"/>
+                                <UML:Dependency xmi.id="XDE-0B78C46F-7158-4707-BFB2-B8D56811F80A" client="XDE-FF7CA8DB-0801-4EA4-8AF8-D1D415D04D3C" supplier="XDE-68AF285D-25B4-4B18-9251-C471524D4F33" name="" isSpecification="false"/>
+                            </UML:Namespace.ownedElement>
+                        </UML:Interface>
+                        <UML:Interface xmi.id="XDE-20F6A784-19AD-4314-BC0F-B58BB1AE44E7" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="DataRetrievalService" isSpecification="false">
+                            <UML:Classifier.feature>
+                                <UML:Operation xmi.id="XDE-77179EA2-C565-433C-AE33-A3441146AEE7" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getData" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-D047283C-F586-4E05-87DC-8C4CFB88832D" kind="return" type="XDE-A43CF1CC-B2D9-4ADB-BD98-8F4F15FEC4C8" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-072927D7-1052-40B7-91D8-0A2818E90699" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-4D2B29DA-74D0-4247-B061-C12C4CA5C895" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getDataByRange" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-81E7F0C1-E6A9-4106-A4F0-A8907F463B93" kind="return" type="XDE-A43CF1CC-B2D9-4ADB-BD98-8F4F15FEC4C8" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-090D836B-9913-4E02-AE19-453BFDB8CBA3" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-C0AF9F24-5CB0-44F7-9420-A63029F1F723" kind="in" type="XDE-66A38882-B441-48DD-89E5-D190DF8AE756" name="start" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-4978FF04-938B-40F6-A8F1-460AFE903AD3" kind="in" type="XDE-66A38882-B441-48DD-89E5-D190DF8AE756" name="length" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-B84B3904-DA90-4B94-86A1-9A1AAF96E84B" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getMetadata" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-4BD83F68-03E0-40DB-9A75-D3D6CCECA4D1" kind="return" type="XDE-EBD165EF-D7AA-40F7-AD91-412068E1DA96" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-C8576615-1490-47C4-B93A-62B7F73C7C7B" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-E11E3650-202E-46BD-8B12-586653C96F13" kind="in" type="XDE-F1CADD68-3A94-4B93-B3EC-560B695D8551" name="accepted_formats" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                                <UML:Operation xmi.id="XDE-0D3E6087-FFEE-456B-8A7D-42CD9FAFE513" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getMetadataSubset" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-B37A0A99-2567-4F67-A026-F4BF047A6356" kind="return" type="XDE-EBD165EF-D7AA-40F7-AD91-412068E1DA96" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-8A387BB7-8503-4D88-ADF7-1CC20995CE47" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-D5FF4409-FC88-45D3-8456-30A490795966" kind="in" type="XDE-F1CADD68-3A94-4B93-B3EC-560B695D8551" name="accepted_formats" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-A9B61EBC-2CFE-42F4-B5E0-F5747D93D6BC" kind="in" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="selector" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                            </UML:Classifier.feature>
+                            <UML:Namespace.ownedElement>
+                                <UML:Dependency xmi.id="XDE-7CCDBB98-148B-43C5-885A-950EBAD86E34" client="XDE-20F6A784-19AD-4314-BC0F-B58BB1AE44E7" supplier="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="" isSpecification="false"/>
+                                <UML:Dependency xmi.id="XDE-F5A421A8-C68A-4015-9922-88EF375A2269" client="XDE-20F6A784-19AD-4314-BC0F-B58BB1AE44E7" supplier="XDE-EBD165EF-D7AA-40F7-AD91-412068E1DA96" name="" isSpecification="false"/>
+                                <UML:Dependency xmi.id="XDE-090F6E62-F882-460E-BA0C-085228A60C20" client="XDE-20F6A784-19AD-4314-BC0F-B58BB1AE44E7" supplier="XDE-FF7CA8DB-0801-4EA4-8AF8-D1D415D04D3C" name="" isSpecification="false"/>
+                            </UML:Namespace.ownedElement>
+                        </UML:Interface>
+                        <UML:Interface xmi.id="XDE-68AF285D-25B4-4B18-9251-C471524D4F33" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="LSIDResolutionDiscoveryService" isSpecification="false">
+                            <UML:Classifier.feature>
+                                <UML:Operation xmi.id="XDE-4E0D19E7-C8FF-4B5E-A51A-7A81D804DFA5" concurrency="sequential" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" ownerScope="instance" visibility="public" specification="" name="getLSIDResolutionService" isSpecification="false">
+                                    <UML:BehavioralFeature.parameter>
+                                        <UML:Parameter xmi.id="XDE-3E8B4C9C-57A9-4A45-84BE-1E9BF5A68BD7" kind="return" type="XDE-05C116C7-14C4-40B0-8B9C-81FD6B3B6119" name="Parameter1" isSpecification="false"/>
+                                        <UML:Parameter xmi.id="XDE-7925D48E-12B1-4FDA-A1D7-FB21F0F8B95C" kind="in" type="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="lsid" isSpecification="false"/>
+                                    </UML:BehavioralFeature.parameter>
+                                </UML:Operation>
+                            </UML:Classifier.feature>
+                            <UML:Namespace.ownedElement>
+                                <UML:Dependency xmi.id="XDE-E578464A-6980-4422-A87E-8220491217F6" client="XDE-68AF285D-25B4-4B18-9251-C471524D4F33" supplier="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71" name="" isSpecification="false"/>
+                            </UML:Namespace.ownedElement>
+                        </UML:Interface>
+                        <UML:Class xmi.id="XDE-EBD165EF-D7AA-40F7-AD91-412068E1DA96" isActive="false" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="Metadata_response" isSpecification="false">
+                            <UML:ModelElement.stereotype>
+                                <UML:Stereotype xmi.idref="XDE-8C0372C9-AB76-4C4F-BFC6-39288F4879AD"/>
+                            </UML:ModelElement.stereotype>
+                            <UML:Classifier.feature>
+                                <UML:Attribute xmi.id="XDE-69AB1151-9E25-49D5-A4C9-00BC8D469938" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="provided_format" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-F67120F4-A0AF-4289-8BA2-E768F8B9B445" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="expiration_date" isSpecification="false"/>
+                                <UML:Attribute xmi.id="XDE-CF0014C4-24C5-452C-A068-26EBE412571F" changeability="changeable" targetScope="instance" ownerScope="instance" visibility="private" ordering="unordered" type="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="metadata" isSpecification="false"/>
+                            </UML:Classifier.feature>
+                        </UML:Class>
+                        <UML:Class xmi.id="XDE-B5D60CEC-5A28-4901-89F2-B40D4A6B4E15" isActive="false" isAbstract="false" isLeaf="false" isRoot="false" visibility="public" name="Metadata_document" isSpecification="false"/>
+                    </UML:Namespace.ownedElement>
+                </UML:Package>
+                <UML:Package xmi.id="XDE-0A7651D5-1F71-4913-AA82-300065ACD96F" name="Component View" isSpecification="false"/>
+                <UML:Package xmi.id="XDE-7F33E5CB-A1B1-43BB-BD40-21BE74A27E57" name="Deployment View" isSpecification="false"/>
+            </UML:Namespace.ownedElement>
+        </UML:Model>
+        <UML:DataType xmi.id="XDE-235078CC-1747-4C18-9AA5-C8A89481D340" name="string"/>
+        <UML:DataType xmi.id="XDE-A71CAC5D-5D7E-4DB2-9A00-DA173382A74C" name="String"/>
+        <UML:DataType xmi.id="XDE-482A5E69-E8C3-450B-AF0D-286099987626" name="NameValuePair[]"/>
+        <UML:DataType xmi.id="XDE-594E88FF-BCEF-40F4-AAD3-3FCF7FA9B419" name="LSID[]"/>
+        <UML:DataType xmi.id="XDE-F3A84DF0-B281-4FAA-8AC8-B447A2F7A3BF" name="String[]"/>
+        <UML:DataType xmi.id="XDE-BC5BB921-9327-4C0E-83F4-604634FC5C28" name="String[][]"/>
+        <UML:DataType xmi.id="XDE-5ACE1B8C-3E8C-4B4E-89C0-F7A394A67A61" name="DataRetrievalService[]"/>
+        <UML:DataType xmi.id="XDE-A43CF1CC-B2D9-4ADB-BD98-8F4F15FEC4C8" name="bytes"/>
+        <UML:DataType xmi.id="XDE-66A38882-B441-48DD-89E5-D190DF8AE756" name="integer"/>
+        <UML:DataType xmi.id="XDE-F1CADD68-3A94-4B93-B3EC-560B695D8551" name="string[]"/>
+        <UML:DataType xmi.id="XDE-05C116C7-14C4-40B0-8B9C-81FD6B3B6119" name="URL[]"/>
+        <UML:TaggedValue xmi.id="XDE-C901FEA8-9241-4A20-8ACE-A5B3C55C970D" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-970A58E6-6D6D-411B-8AA1-F14ADC8B8D71"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-F2A4EDEF-CF8B-4925-9803-ECB135A3CDA1" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-69AB1151-9E25-49D5-A4C9-00BC8D469938"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-5455DDC0-42D9-49B7-B8AA-6ADEEF8B2A3B" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-C196DDBA-CCF7-4C72-89FE-1FCC01D489DF"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-7A8C5E08-2AED-4A02-AF94-D811935D6EF4" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-4433B07C-B460-4DF2-A337-DA411701427E"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-7E438A01-09EA-4CD6-B275-1D60CBE5B319" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-B5D60CEC-5A28-4901-89F2-B40D4A6B4E15"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-75B39659-0B4F-4E00-B125-1FC72C292FFB" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-68AF285D-25B4-4B18-9251-C471524D4F33"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-6A48C5DA-8376-4ACC-8669-6F917F740610" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-19AEA6BB-8235-4127-AACB-1785C340AE65"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-12A8FDB7-0A64-40CD-8727-A4948BB8183D" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-FF7CA8DB-0801-4EA4-8AF8-D1D415D04D3C"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-D9889F52-ADE7-47CD-ADEE-DF6409BE5D17" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-FBB3ABE8-F53C-484D-838B-9445D2BDC6C1"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-EFB6F747-967F-4472-949C-E298C45B57CA" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-A16B6458-248B-4366-869C-4E10FEF57CAD"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-3150F15A-6AFF-452E-BDE4-BF56A3DD8791" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-F67120F4-A0AF-4289-8BA2-E768F8B9B445"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-D8425F10-25D1-4B38-944F-80E0878440A8" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-EBD165EF-D7AA-40F7-AD91-412068E1DA96"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-60DC72D6-D5DD-4A8A-81B9-D57EBEB7671E" name="persistence">
+            <UML:TaggedValue.dataValue>transient</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-20F6A784-19AD-4314-BC0F-B58BB1AE44E7"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-0F3E793F-E274-4438-B9CA-38A4A1264E2B" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-5E652742-C186-4739-BD26-05579E3942A6"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-326EF665-CCB1-4B69-9B83-B54EE0DFD6B7" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-506AFF70-6746-4896-9A8F-C4223D02DDB4"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-2A5A2CD0-3B46-4481-B1EF-D744C35CFC25" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-4249F647-4046-478D-B6BF-4F5A51AFC61A"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+        <UML:TaggedValue xmi.id="XDE-A0043475-8821-44F8-A000-43C151D7D387" name="persistence">
+            <UML:TaggedValue.dataValue>persistent</UML:TaggedValue.dataValue>
+            <UML:TaggedValue.modelElement>
+                <UML:ModelElement xmi.idref="XDE-CF0014C4-24C5-452C-A068-26EBE412571F"/>
+            </UML:TaggedValue.modelElement>
+        </UML:TaggedValue>
+    </XMI.content>
+    <XMI.extensions xmi.extender="IBM/Rational XDE">
+        <XMI.extension xmi.extender="IBM/Rational XDE" xlink:title="XDE Applied Profiles" xmi.label="ClassicRose,CodeTemplates,Data Modeler,Java">
+            <XDE:AppliedProfile name="ClassicRose" version=""/>
+            <XDE:AppliedProfile name="CodeTemplates" version="1.5d"/>
+            <XDE:AppliedProfile name="Data Modeler" version="1.5b"/>
+            <XDE:AppliedProfile name="Java" version="1.5b"/>
+        </XMI.extension>
+    </XMI.extensions>
+</XMI>

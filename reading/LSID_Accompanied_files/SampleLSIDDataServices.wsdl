@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- 
+LSID Sample Implementations.
+
+Jordi Albornoz
+Dan Smith
+16 October 2003 - Initial Version
+24 October 2003 - Minor cosmetic changes
+5 December 2003 - Added examples for HTTP and FTP bindings
+15 July 2004 - Updated WSDL FTP namespace
+19 July 2004 - Modified to give example of duplicate versus unique metadata convention
+-->
+
+<definitions xmlns:tns="http://www.example.org/SampleDataServices"
+		targetNamespace="http://www.example.org/SampleDataServices"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+		xmlns:ftp="http://www.omg.org/LSID/2003/WSDL/FTP"
+		xmlns:sns="http://www.omg.org/LSID/2003/DataServiceSOAPBindings"
+		xmlns:httpsns="http://www.omg.org/LSID/2003/DataServiceHTTPBindings"
+		xmlns:ftpsns="http://www.omg.org/LSID/2003/DataServiceFTPBindings">
+
+	<import namespace="http://www.omg.org/LSID/2003/DataServiceSOAPBindings" location="LSIDDataServiceSOAPBindings.wsdl" />
+	<import namespace="http://www.omg.org/LSID/2003/DataServiceHTTPBindings" location="LSIDDataServiceHTTPBindings.wsdl" />
+	<import namespace="http://www.omg.org/LSID/2003/DataServiceFTPBindings" location="LSIDDataServiceFTPBindings.wsdl" />
+
+	<service name="MyMetaData">
+		<!-- All metadata ports within a service return the same metadata. --> 
+
+		<!-- Example SOAP Metadata Services -->
+		<port name="MyMetadataServiceSOAPPort" binding="sns:LSIDMetadataSOAPBinding">
+			<soap:address location="http://www.server3.com/" />
+		</port>
+		<port name="MyMetadataSubsetSOAPServicePort" binding="sns:LSIDMetadataSubsetSOAPBinding">
+			<soap:address location="http://www.server3.com/" />
+		</port>
+	
+		<!-- Example HTTP GET Metadata Services (urlEncoding) -->
+		<port name="MyMetadataServiceHTTPPort" binding="httpsns:LSIDMetadataHTTPBinding">
+			<http:address location="http://www.server4.com/metaDataService.pl" /> 
+		</port>
+		<port name="MyMetadataSubsetHTTPServicePort" binding="httpsns:LSIDMetadataSubsetHTTPBinding">
+			<http:address location="http://www.server5.com/metadataSubsetService.pl" /> 
+		</port>
+
+		<!-- Example HTTP GET 'Direct' Metadata Service (no encoded parameters) -->
+		<port name="MyMetadataServiceHTTPDirectPort" binding="httpsns:LSIDMetadataHTTPBindingDirect">
+			<http:address location="http://www.server4.com/anotherfile.txt" /> 
+		</port>
+
+		<!-- Example FTP Metadata Service -->
+		<port name="MyMetadataServiceFTPPort" binding="ftpsns:LSIDMetadataFTPBinding">
+			<ftp:location filepath="/pub/lsid/245gs.xml" server="ftp.server6.org"/>
+		</port>
+	</service>
+	
+	<!-- Example SOAP Data Service -->
+	<service name="MyDataSOAPService">
+		<port name="MyDataServiceSOAPPort" binding="sns:LSIDDataSOAPBinding">
+			<soap:address location="http://www.server1.com/" />
+		</port>
+	</service>
+
+	<!-- Example HTTP GET Data Service (urlEncoding) -->
+	<service name="MyDataHTTPService">
+		<port name="MyDataServiceHTTPPort" binding="httpsns:LSIDDataHTTPBinding">
+			<http:address location="http://www.server4.com/dataService.pl" /> 
+		</port>
+	</service>
+
+	<!-- Example HTTP GET 'Direct' Data Service (no encoded parameters) -->
+	<service name="MyDataHTTPDirectService">
+		<port name="MyDataServiceHTTPDirectPort" binding="httpsns:LSIDDataHTTPBindingDirect">
+			<http:address location="http://www.server4.com/myfile.txt" /> 
+		</port>
+	</service>
+
+	<!-- Example FTP Data Service -->
+	<service name="MyDataFTPService">
+		<port name="MyDataServiceFTPPort" binding="ftpsns:LSIDDataFTPBinding">
+			<ftp:location filepath="/pub/lsid/245gs.mmcif" server="ftp.server5.org"/>
+		</port>
+	</service>
+	
+	<service name="MyOtherMetaData">
+		<!-- All metadata ports within a service return the same metadata. --> 
+
+		<!-- Example SOAP Metadata Services -->
+		<port name="MyMetadataServiceSOAPPort" binding="sns:LSIDMetadataSOAPBinding">
+			<soap:address location="http://www.server3.com/otherMetaData" />
+		</port>
+		<port name="MyMetadataSubsetSOAPServicePort" binding="sns:LSIDMetadataSubsetSOAPBinding">
+			<soap:address location="http://www.server3.com/otherMetaData" />
+		</port>
+	
+		<!-- Example HTTP GET 'Direct' Metadata Service (no encoded parameters) -->
+		<port name="MyMetadataServiceHTTPDirectPort" binding="httpsns:LSIDMetadataHTTPBindingDirect">
+			<http:address location="http://www.server4.com/otherMetaData.txt" /> 
+		</port>
+	</service>
+
+</definitions>

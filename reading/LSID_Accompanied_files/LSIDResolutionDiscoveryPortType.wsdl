@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- 
+
+LSID Resolution Discovery Standard Port Type
+
+Jordi Albornoz
+23 October 2003 - Initial Draft
+24 October 2003 - Minor cosmetic changes
+-->
+
+<definitions xmlns:tns="http://www.omg.org/LSID/2003/Standard/ResolutionDiscovery/WSDL"
+		targetNamespace="http://www.omg.org/LSID/2003/Standard/ResolutionDiscovery/WSDL"
+		xmlns:ns="http://www.omg.org/LSID/2003/Standard/ResolutionDiscovery/WSDL/SchemaTypes"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns="http://schemas.xmlsoap.org/wsdl/">
+	
+	<types>
+		<xsd:schema targetNamespace="http://www.omg.org/LSID/2003/Standard/ResolutionDiscovery/WSDL/SchemaTypes"
+			xmlns="http://www.omg.org/LSID/2003/Standard/ResolutionDiscovery/WSDL/SchemaTypes"
+			elementFormDefault="qualified">
+			
+			<xsd:complexType name="URLList">
+				<xsd:sequence>
+					<xsd:element name="url" type="xsd:anyURI" maxOccurs="unbounded" minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+		</xsd:schema>
+	</types>
+
+	<message name="getLSIDResolutionServiceRequest">
+		<part name="lsid" type="xsd:anyURI" />
+	</message>
+	<message name="getLSIDResolutionServiceResponse">
+		<part name="URLList" type="ns:URLList" />
+	</message>
+
+	<portType name="LSIDResolutionDiscoveryServicePortType">
+		<operation name="getLSIDResolutionService">
+			<input message="tns:getLSIDResolutionServiceRequest" />
+			<output message="tns:getLSIDResolutionServiceResponse" />
+		</operation>
+	</portType>
+</definitions>
