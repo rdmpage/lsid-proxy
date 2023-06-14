@@ -309,7 +309,8 @@ exclude-result-prefixes="dc dcterms rdf owl tn tm tcom p tpub"
 										<a class="external" target="_new">
 											<xsl:variable name="string-with-escaped-ampersand">
 												<xsl:call-template name="replace">
-													<xsl:with-param name="string" select="."/>
+													<!-- note that we use normalize-space to remove trailing whitespace -->
+													<xsl:with-param name="string" select="normalize-space(.)"/>
 													<xsl:with-param name="substring">&amp;amp;</xsl:with-param>
 													<xsl:with-param name="replacement">&amp;</xsl:with-param>
 												</xsl:call-template>
