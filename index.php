@@ -48,28 +48,39 @@ the URL for this resolver.</p>
 	}
 	
 	$examples = array(
+		// IPNI names
 		'urn:lsid:ipni.org:names:99338-1',
 		'urn:lsid:ipni.org:names:77209281-1',
 		'urn:lsid:ipni.org:names:77153960-1',
 		
+		// IPNI authors
+		'urn:lsid:ipni.org:authors:19160-1',
+		
+		// IndexFungorum
 		'urn:lsid:indexfungorum.org:names:356289',
 		
+		// WoRMS
 		'urn:lsid:marinespecies.org:taxname:955176',
 		
+		// World Spiders
 		'urn:lsid:nmbe.ch:spidersp:021946',
 		
+		// SpeciesFile
 		'urn:lsid:Orthoptera.speciesfile.org:TaxonName:61777',
 		
+		// ION
 		'urn:lsid:organismnames.com:name:1776318',	
 		
+		// ZooBank
 		'urn:lsid:zoobank.org:act:6EA8BB2A-A57B-47C1-953E-042D8CD8E0E2',
 		
+		// IRMNG
 		'urn:lsid:irmng.org:taxname:10150800',
 	);
 	
 	// known to broken
 	// urn:lsid:wac.nmbe.ch:name:b9c45c62-4e36-440a-8b48-7e7e99923108  https://wac.nmbe.ch/order/pseudoscorpiones/genusdata/836
-	// urn:lsid:itis.gov:itis_tsn:180543 faiuls, but see https://www.itis.gov/ws_lsidApiDescription.html for (weird) XML response
+	// urn:lsid:itis.gov:itis_tsn:180543 fails, but see https://www.itis.gov/ws_lsidApiDescription.html for (weird) XML response
 	
 	echo '<ul>';
 	foreach ($examples as $example_lsid)
@@ -216,10 +227,13 @@ function display_html($response, $html_redirect = false)
 	
 		if ($response->status == 200)
 		{
-			//echo $response->rdf;
+			$rdf = $response->rdf;
+			
+			// any fixes we might need go here
+			$rdf = preg_replace('/"http:\/\/rs.tdwg.org\/ontology\/voc\/Person"/', '"http://rs.tdwg.org/ontology/voc/Person#"', $rdf);
 		
 			$xml = new DOMDocument();
-			$xml->loadXML($response->rdf);
+			$xml->loadXML($rdf);
 		
 			$xsl = new DOMDocument;
 			$xsl->load(dirname(__FILE__) . '/lsid.xsl');
