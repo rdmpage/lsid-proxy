@@ -38,7 +38,7 @@ function display_default()
 the URL for this resolver.</p>
 <p>If you append <code>+</code> to the LSID the resolver
 	 will display the LSID metadata, otherwise it will attempt to redirect 
-	 you to the sourcr webpage for the LSID.</p>';
+	 you to the source webpage for the LSID.</p>';
 
 	$resolver = (!empty($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on' || $_SERVER['HTTPS'] == '1')) ? 'https://' : 'http://';
 	$resolver .= $_SERVER['SERVER_NAME'];
